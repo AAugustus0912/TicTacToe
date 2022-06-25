@@ -1,0 +1,25 @@
+*{
+    padding: 5;
+    font-family: 'Doris', sans-serif;
+    background-color:cadetblue;
+}
+
+
+.main-nav{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.sub-nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+a.top{
+    color: black;
+}
+
+.company-name{
+    font-size: larger;
+}

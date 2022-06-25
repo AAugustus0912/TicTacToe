@@ -1,0 +1,55 @@
+html {background-color: plum;}
+
+main{text-align: center;}
+
+header{position: fixed;}
+
+
+h1.name{background-color: darkorchid;
+    font-family: "Sofia",sans-serif;
+    max-width: 8cm;
+    overflow: auto;
+}
+
+.links{text-align: right;
+    font-size:x-large;
+    float: 50px;
+    border-bottom: 10px;
+}
+
+h1.quote{ 
+    font-family: "Sofia",sans-serif;}
+
+h2.re{font-family: "Sofia",sans-serif;
+text-align: center;}
+
+.headshot{height:10%;
+width: 5%;
+float: left;}
+
+.rebio{font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 15px auto;
+}
+
+h2.wd{font-family: "Sofia",sans-serif;
+text-align: center;
+margin: 15px auto}
+
+.codepic{height: 5%;
+width: 5%;
+float: left;}
+
+.tech{font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+footer{text-align: center;
+}
+
+.fb{height: 50px;
+width: 50px;}
+
+.li{height: 50px;
+width: 50px;}
+
+.tw{height: 50px;
+width: 50px;}

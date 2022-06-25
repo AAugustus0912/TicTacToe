@@ -1,0 +1,38 @@
+html{
+    background-color: plum;
+   }
+
+main{margin: 0 auto;}
+
+header{position: fixed;}
+
+
+   h1.name{background-color: darkorchid;
+    font-family: "Sofia",sans-serif;
+    max-width: 8cm
+}
+
+.links{text-align: right;
+font-size:x-large;
+float: 50px}
+
+.motto{font-size: x-large;
+font-family: "Sofia",sans-serif;
+text-align: center;}
+
+.quote{height: 400px;
+width: 400px;}
+
+.test{text-align: center;
+}
+
+footer{text-align: center;}
+
+.fb{height: 50px;
+width: 50px;}
+
+.li{height: 50px;
+width: 50px;}
+
+.tw{height: 50px;
+width: 50px;}

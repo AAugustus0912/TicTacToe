@@ -1,0 +1,31 @@
+html {
+    background-color:plum;
+    }
+    
+    h1.name{background-color: darkorchid;
+        font-family: "Sofia",sans-serif;
+        max-width: 8cm;
+    }
+    
+    h1.Title {text-align:center;
+        
+    }
+    
+    h2.midtext{ font-family: "Sofia",sans-serif;}
+    
+    .links{text-align: right;
+        font-size:x-large;
+        float: 50px;
+    }
+    
+    footer{text-align: center;}
+    
+    .fb{height: 50px;
+    width: 50px;}
+    
+    .li{height: 50px;
+    width: 50px;}
+    
+    .tw{height: 50px;
+    width: 50px;}
+    
