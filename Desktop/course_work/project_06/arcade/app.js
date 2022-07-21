@@ -1,13 +1,21 @@
 //used to select ALL the tiles - line 2
 const tiles = document.querySelectorAll(".tile");
 const board = document.querySelector("#board");
-const xPlayer = 'X';
+let isX = 'X';
 const oPlayer = 'O';
-let turn = xPlayer;
+let turn = isX;
+const players=[];
+
+function grabNames() {
+    const playerOne= document.querySelector("#player1")
+    const playerTwo= document.querySelector("#player2")
+
+    console.log(playerOne)
+}
 
 //The array is 9 items because we have 9 tiles
 const boardState = Array(tiles.length);
-boardState.fill(null);
+// boardState.fill(null);
 
 const strike = document.getElementById("strike");
 const gameOver = document.getElementById("game-over");
@@ -17,7 +25,14 @@ playAgain.addEventListener("click", startNewGame);
 
 //Event Listeners "listen" for some kind of even
 // like a mouse click so it can respond accordingly
+function startNewGame(){
+    strike.className = "strike";
+    gameOver.className = "hidden";
+    boardState.fill(null);
+    tiles.forEach((tile) => (tile.innerText = ""));
+    isX = 'X';
 
+}
 //The forEach() method calls a function for each element in an array
 
 tiles.forEach((tile) => tile.addEventListener("click", tileClick));
@@ -34,15 +49,15 @@ function tileClick(event) {
     if (tile.innerText != "") {
         return;
     }
-    if (turn === xPlayer) {
-        tile.innerText =xPlayer;
-        boardState [tileNumber - 1] = xPlayer;
-        turn = oPlayer;
+    if (isX === 'X') {
+        tile.innerText =isX;
+        boardState [tileNumber - 1] = isX;
+        isX = oPlayer;
     }
     else {
         tile.innerText = oPlayer;
         boardState[tileNumber - 1] = oPlayer;
-        turn = xPlayer
+        isX = 'X'
     }
     checkWinner();
 }
@@ -90,7 +105,7 @@ function startNewGame(){
     gameOver.className = "hidden";
     boardState.fill(null);
     tiles.forEach((tile) => (tile.innerText = ""));
-    turn = xPlayer;
+    isX = 'X';
 
 }
 
@@ -106,5 +121,23 @@ const winningKeys = [
     {combination:[1,5,9], strikeClass: "strike-diagonal-1"},
     {combination:[3,5,7], strikeClass: "strike-diagonal-2"},    
 ];
+
+// var btn = document.querySelector("button");
+// var firsttext = [];
+
+// btn.addEventListener("click", function(){
+//   var player1 = document.getElementById("firsttext");
+//   var player2 = document.getElementById("secondtext");
+  
+//   if (player1.value != "" && player2.value != "") {
+//     firsttext.push(player1.value);
+//     firsttext.push(player2.value);
+//     alert(firsttext);
+//     return firsttext;
+//   } else {
+//   	alert("Enter players' names");
+//   }
+	
+// });
 
 //board.addEventListener("click", tileClick);
