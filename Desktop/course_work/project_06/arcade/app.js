@@ -1,13 +1,36 @@
 //used to select ALL the tiles - line 2
 const tiles = document.querySelectorAll(".tile");
 const board = document.querySelector("#board");
-const xPlayer = 'X';
+let isX = 'X';
 const oPlayer = 'O';
-let turn = xPlayer;
+let turn = isX;
+const players= document.querySelectorAll(".players");
+let whichPlayer= getRandomInt(2);
+let currentPlayer;
+let whoseTurn= document.querySelector("#whose-turn");
+
+console.log(whichPlayer)
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+function grabNames() {
+    currentPlayer = whichPlayer === 0 ? players[0].value : players[1].value
+    whoseTurn.innerText=`${ currentPlayer }, its your turn!`;
+
+
+    console.dir(whoseTurn)
+    console.log(players[0].value)
+    console.log(players[1].value)
+    console.log("My grabbed name", currentPlayer)
+}
+
+const startButton = document.getElementById("second_button");
+startButton.addEventListener("click", grabNames);
 
 //The array is 9 items because we have 9 tiles
 const boardState = Array(tiles.length);
-boardState.fill(null);
+ boardState.fill(null);
 
 const strike = document.getElementById("strike");
 const gameOver = document.getElementById("game-over");
@@ -34,17 +57,26 @@ function tileClick(event) {
     if (tile.innerText != "") {
         return;
     }
-    if (turn === xPlayer) {
-        tile.innerText =xPlayer;
-        boardState [tileNumber - 1] = xPlayer;
-        turn = oPlayer;
+    if (isX === 'X') {
+        tile.innerText =isX;
+        boardState [tileNumber - 1] = isX;
+        isX = oPlayer;
+        // whichPlayer= Math.abs(whichPlayer-1)
+        // currentPlayer= players[whichPlayer].value
     }
     else {
         tile.innerText = oPlayer;
         boardState[tileNumber - 1] = oPlayer;
-        turn = xPlayer
+        isX = 'X'
+        // whichPlayer= Math.abs(whichPlayer-1)
+        // currentPlayer= players[whichPlayer].value
     }
     checkWinner();
+    
+    whichPlayer= Math.abs(whichPlayer-1)
+    currentPlayer= players[whichPlayer].value
+    whoseTurn.innerText=`${ currentPlayer }, its your turn!`;
+
 }
 // line 51 declaring the constant to extract the winningKeys below
 // lines 53-57 causing the strikethrough
@@ -62,7 +94,7 @@ function checkWinner(){
         tileValue1 === tileValue2 && 
         tileValue1 === tileValue3) {
         strike.classList.add(strikeClass);
-        gameOverBrows(tileValue1)
+        gameOverBrows(currentPlayer)
         return;
         }
     }
@@ -81,16 +113,18 @@ function gameOverBrows(winnerMess){
         mess = `The Winner Is ${winnerMess}!`;
     }
     gameOver.className = "visible";
+    whoseTurn.className="hidden";
     gameOverMess.innerText = mess;
 }
 
 // for the Play Again button to work
 function startNewGame(){
     strike.className = "strike";
+    whoseTurn.className="visible";
     gameOver.className = "hidden";
     boardState.fill(null);
     tiles.forEach((tile) => (tile.innerText = ""));
-    turn = xPlayer;
+    isX = 'X';
 
 }
 
@@ -106,5 +140,27 @@ const winningKeys = [
     {combination:[1,5,9], strikeClass: "strike-diagonal-1"},
     {combination:[3,5,7], strikeClass: "strike-diagonal-2"},    
 ];
+
+
+
+
+
+// var btn = document.querySelector("button");
+// var firsttext = [];
+
+// btn.addEventListener("click", function(){
+//   var player1 = document.getElementById("firsttext");
+//   var player2 = document.getElementById("secondtext");
+  
+//   if (player1.value != "" && player2.value != "") {
+//     firsttext.push(player1.value);
+//     firsttext.push(player2.value);
+//     alert(firsttext);
+//     return firsttext;
+//   } else {
+//   	alert("Enter players' names");
+//   }
+	
+// });
 
 //board.addEventListener("click", tileClick);
