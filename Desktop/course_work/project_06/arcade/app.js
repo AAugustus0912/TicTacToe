@@ -4,14 +4,18 @@ const board = document.querySelector("#board");
 let isX = 'X';
 const oPlayer = 'O';
 let turn = isX;
-const players=[];
+const players= document.querySelectorAll(".players");
+
 
 function grabNames() {
-    const playerOne= document.querySelector("#player1")
-    const playerTwo= document.querySelector("#player2")
+    
 
-    console.log(playerOne)
+    console.log(players[0].value)
+    console.log(players[1].value)
 }
+
+const startButton = document.getElementById("second_button");
+startButton.addEventListener("click", grabNames);
 
 //The array is 9 items because we have 9 tiles
 const boardState = Array(tiles.length);
@@ -121,6 +125,10 @@ const winningKeys = [
     {combination:[1,5,9], strikeClass: "strike-diagonal-1"},
     {combination:[3,5,7], strikeClass: "strike-diagonal-2"},    
 ];
+
+
+
+
 
 // var btn = document.querySelector("button");
 // var firsttext = [];
